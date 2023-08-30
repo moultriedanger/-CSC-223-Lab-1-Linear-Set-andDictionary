@@ -81,6 +81,7 @@ class ArraySetTest
 	@Test
 	void testRemoveAll()
 	{
+		//-----Test1------
 		ArraySet <Integer> testRem = new ArraySet<Integer>();
 		testRem.add(1);
 		testRem.add(2);
@@ -88,22 +89,28 @@ class ArraySetTest
 		testRem.add(4);
 		
 		assertEquals(4, testRem.size());
-		
-        assertEquals(4, testRem.size());
         
         testRem.removeAll(testRem);
         assertEquals(0, testRem.size());
+        
+        //----Test2------
+        //Remove all from empty set
+//        ArraySet <Integer> testRem2 = new ArraySet<Integer>();
+//        assertEquals(0, testRem.size());
+//        testRem.removeAll(testRem);
+//        assertEquals(0, testRem.size());
 	}
-	
+	@Test
 	void testAddAll(){
 		
-		//Populate array to add to
+		//------Test1-----------
 		ArraySet <Integer> testAddA = new ArraySet<Integer>();
-		
+		//Populate arrraySet
 		testAddA.add(1);
 		testAddA.add(2);
 		testAddA.add(3);
 		testAddA.add(4);
+		assertEquals(4, testAddA.size());
 		
 		//Populate collection to add
 		List<Integer> collTest = new ArrayList<>();
@@ -113,8 +120,19 @@ class ArraySetTest
 		collTest.add(8);
 		
 		//Add collection to array set no duplicates
-		assertTrue(testAddA.addAll(collTest));
+		testAddA.addAll(collTest);
+		assertEquals(8, testAddA.size());
+		assertTrue(testAddA.contains(8));
 		
+		
+		//----Test 2------
+		testAddA.clear();
+		assertEquals(0, testAddA.size());
+		
+		testAddA.add(1);
+		testAddA.add(2);
+		testAddA.add(3);
+		testAddA.add(4);
 		
 		List<Integer> collTest1 = new ArrayList<>();
 		collTest.add(1);
@@ -122,8 +140,10 @@ class ArraySetTest
 		collTest.add(3);
 		collTest.add(4);
 		
-		//Add collection to array set all duplicates
-		assertFalse(testAddA.addAll(collTest));
+		//Add all duplicate list. Len should still be 4
+		testAddA.addAll(collTest1);
+		assertEquals(4, testAddA.size());
+		
 		
 	}
 

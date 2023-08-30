@@ -1,3 +1,13 @@
+/**
+* A class that implements an arraySet using an underlying arrayList
+*
+* <p>Bugs: (a list of bugs and / or other problems)
+*
+* @author <Moultrie Dangerfield>
+* @date <08/30/23>
+*/
+
+
 package utilities;
 
 import java.util.AbstractMap;
