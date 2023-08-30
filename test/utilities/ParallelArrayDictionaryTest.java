@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.*;
+
 import org.junit.jupiter.api.Test;
 
 class ParallelArrayDictionaryTest
@@ -30,6 +32,13 @@ class ParallelArrayDictionaryTest
 	@Test
 	void testPut()
 	{
+		ParallelArrayDictionary <Integer,Integer> putTest = new ParallelArrayDictionary<Integer,Integer>();
+		putTest.put(1, 3);
+		putTest.put(2, 6);
+		putTest.put(3, 9);
+		assertEquals(3,putTest.size());
+		
+		
 	}
 
 	@Test
@@ -48,6 +57,17 @@ class ParallelArrayDictionaryTest
 	@Test
 	void testPutAll()
 	{
+		ParallelArrayDictionary <Integer,Integer> putTest = new ParallelArrayDictionary<Integer,Integer>(); 
+		
+		Map <Integer,Integer> testMap = new HashMap<Integer,Integer>();
+		testMap.put(1, 3);
+		testMap.put(2, 6);
+		testMap.put(3, 9);
+		
+		putTest.putAll(testMap);
+		
+		
+		assertEquals(3,putTest.size());
 	}
 
 	@Test

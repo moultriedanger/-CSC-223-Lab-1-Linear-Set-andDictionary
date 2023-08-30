@@ -58,7 +58,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	public Value put(Key key, Value value) {
 		_keys.add(key);
 		_values.add(value);
-		return null;
+		return value;
 	}
 
 	@Override
@@ -70,7 +70,10 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public void putAll(Map<? extends Key, ? extends Value> m) {
-		// TODO Auto-generated method stub
+		
+		for(Entry<? extends Key, ? extends Value> pair: m.entrySet()) {
+			put(pair.getKey(), pair.getValue());
+		}
 		
 	}
 

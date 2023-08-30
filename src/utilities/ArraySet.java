@@ -62,7 +62,6 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public Object[] toArray() {
-		// What does this method do?
 		return _list.toArray();
 	}
 
