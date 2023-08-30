@@ -28,13 +28,15 @@ public class ArraySet<E> implements List<E>, Set<E>
 	
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
+		//boolean to see if a value was added
+		boolean added = false;
 		for(E value: c) {
 			if(!_list.contains(value)) {
 				_list.add(value);
+				added = true;
 			}
-		return true;
 		} 
-		return false;
+		return added;
 	}
 
 	@Override
@@ -55,8 +57,8 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public <T> T[] toArray(T[] a) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.toArray(a);
+		
 	}
 
 	@Override
@@ -114,20 +116,18 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public ListIterator<E> listIterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.listIterator();
 	}
 
 	@Override
 	public ListIterator<E> listIterator(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.listIterator(index);
 	}
 
 	@Override
 	public List<E> subList(int fromIndex, int toIndex) {
 		// TODO Auto-generated method stub
-		return null;
+		return _list.subList(fromIndex, toIndex);
 	}
 
 	@Override

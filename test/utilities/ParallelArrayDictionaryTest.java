@@ -4,9 +4,11 @@ import org.junit.jupiter.api.Test;
 
 class ParallelArrayDictionaryTest
 {
+	
 	@Test
 	void testParallelArrayDictionary()
 	{
+		
 	}
 
 	@Test
@@ -32,5 +34,8 @@ class ParallelArrayDictionaryTest
 	@Test
 	void testClear()
 	{
+		ParallelArrayDictionary 
+		
+		
 	}
 }

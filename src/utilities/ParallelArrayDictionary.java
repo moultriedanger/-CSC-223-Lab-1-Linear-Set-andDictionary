@@ -19,7 +19,6 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public int size() {
-		
 		return _keys.size();
 	}
 
@@ -36,8 +35,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public boolean containsValue(Object value) {
-		// TODO Auto-generated method stub
-		return false;
+		return _values.contains(value);
 	}
 
 	@Override
@@ -66,8 +64,7 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		_keys.clear();
 	}
 
 	@Override

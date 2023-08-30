@@ -66,7 +66,7 @@ class ArraySetTest
 		
 		assertEquals(5,testRet.size());
 		
-//		//What does this do?
+		//What does this do?
 		assertTrue(testRet.retainAll(testCollection));
 		assertEquals(3,testRet.size());
 		
@@ -75,10 +75,6 @@ class ArraySetTest
 		assertTrue(testRet.contains(5));
 		assertTrue(testRet.contains(12));
 		assertTrue(testRet.contains(15));	
-		
-		
-		
-		
 	}
 	
 
@@ -97,6 +93,39 @@ class ArraySetTest
         
         testRem.removeAll(testRem);
         assertEquals(0, testRem.size());
+	}
+	
+	void testAddAll(){
+		
+		//Populate array to add to
+		ArraySet <Integer> testAddA = new ArraySet<Integer>();
+		
+		testAddA.add(1);
+		testAddA.add(2);
+		testAddA.add(3);
+		testAddA.add(4);
+		
+		//Populate collection to add
+		List<Integer> collTest = new ArrayList<>();
+		collTest.add(5);
+		collTest.add(6);
+		collTest.add(7);
+		collTest.add(8);
+		
+		//Add collection to array set no duplicates
+		assertTrue(testAddA.addAll(collTest));
+		
+		
+		List<Integer> collTest1 = new ArrayList<>();
+		collTest.add(1);
+		collTest.add(2);
+		collTest.add(3);
+		collTest.add(4);
+		
+		//Add collection to array set all duplicates
+		assertFalse(testAddA.addAll(collTest));
+		
+		
 	}
 
 }
