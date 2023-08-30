@@ -1,9 +1,8 @@
 /**
-* A class that implements an arraySet using an underlying arrayList
+* A class that implements a ParallelArrayDictionary using an underlying arrayList for values and an underlying arraySet for keys
 *
-* <p>Bugs: (a list of bugs and / or other problems)
 *
-* @author <Moultrie Dangerfield>
+* @author <Moultrie Dangerfield, Flynn Nisbet, and Mengsrun Nit>
 * @date <08/30/23>
 */
 
@@ -34,12 +33,11 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public boolean isEmpty() {
-		return size()== 0;
+		return size() == 0;
 	}
 
 	@Override
 	public boolean containsKey(Object key) {
-		// TODO Auto-generated method stub
 		return _keys.contains(key);
 	}
 
@@ -74,7 +72,6 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 		for(Entry<? extends Key, ? extends Value> pair: m.entrySet()) {
 			put(pair.getKey(), pair.getValue());
 		}
-		
 	}
 
 	@Override
@@ -89,14 +86,11 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public Collection<Value> values() {
-		// TODO Auto-generated method stub
 		return _values;
 	}
 
 	@Override
 	public Set<Entry<Key, Value>> entrySet() {
-		// TODO Auto-generated method stub
-		return null;
+		return ;
 	}
-
 }

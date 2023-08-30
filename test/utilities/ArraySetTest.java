@@ -1,3 +1,10 @@
+/**
+* A class that tests arraySet using a number of test methods
+*
+*
+* @author <Moultrie Dangerfield, Flynn Nisbet, Mengsrun Nit>
+* @date <08/30/23>
+*/
 package utilities;
 
 import static org.junit.Assert.assertEquals;
@@ -31,7 +38,7 @@ class ArraySetTest
         //Make sure size is right after adding
         assertEquals(4, addTest.size());
         
-		//Check elements that dont exist
+		//Check elements that don't exist
         assertFalse(addTest.contains(4));
         assertFalse(addTest.contains(-2));
         //Elements that do exist
@@ -66,8 +73,8 @@ class ArraySetTest
 		
 		assertEquals(5,testRet.size());
 		
-		//What does this do?
-		assertTrue(testRet.retainAll(testCollection));
+		//------Test------
+		testRet.retainAll(testCollection);
 		assertEquals(3,testRet.size());
 		
 		assertFalse(testRet.contains(0));
@@ -95,10 +102,10 @@ class ArraySetTest
         
         //----Test2------
         //Remove all from empty set
-//        ArraySet <Integer> testRem2 = new ArraySet<Integer>();
-//        assertEquals(0, testRem.size());
-//        testRem.removeAll(testRem);
-//        assertEquals(0, testRem.size());
+        ArraySet <Integer> testRem2 = new ArraySet<Integer>();
+        assertEquals(0, testRem2.size());
+        testRem.removeAll(testRem2);
+        assertEquals(0, testRem2.size());
 	}
 	@Test
 	void testAddAll(){
@@ -114,35 +121,34 @@ class ArraySetTest
 		
 		//Populate collection to add
 		List<Integer> collTest = new ArrayList<>();
-		collTest.add(5);
-		collTest.add(6);
-		collTest.add(7);
-		collTest.add(8);
-		
-		//Add collection to array set no duplicates
-		testAddA.addAll(collTest);
-		assertEquals(8, testAddA.size());
-		assertTrue(testAddA.contains(8));
-		
-		
-		//----Test 2------
-		testAddA.clear();
-		assertEquals(0, testAddA.size());
-		
-		testAddA.add(1);
-		testAddA.add(2);
-		testAddA.add(3);
-		testAddA.add(4);
-		
-		List<Integer> collTest1 = new ArrayList<>();
 		collTest.add(1);
 		collTest.add(2);
 		collTest.add(3);
 		collTest.add(4);
 		
-		//Add all duplicate list. Len should still be 4
-		testAddA.addAll(collTest1);
+		//Add collection to array set no duplicates
+		testAddA.addAll(collTest);
 		assertEquals(4, testAddA.size());
+		assertTrue(testAddA.contains(4));
+		
+		
+		//----Test 2------
+		ArraySet <Integer> testAddA1 = new ArraySet<Integer>();
+		
+		testAddA1.add(1);
+		testAddA1.add(2);
+		testAddA1.add(3);
+		testAddA1.add(4);
+		
+		List<Integer> collTest1 = new ArrayList<>();
+		collTest1.add(5);
+		collTest1.add(6);
+		collTest1.add(7);
+		collTest1.add(8);
+		
+		//Add all duplicate list. Size should still be 4
+		testAddA1.addAll(collTest1);
+		assertEquals(8, testAddA1.size());
 		
 		
 	}

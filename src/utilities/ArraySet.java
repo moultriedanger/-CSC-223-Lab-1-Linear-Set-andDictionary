@@ -1,9 +1,8 @@
 /**
 * A class that implements an arraySet using an underlying arrayList
 *
-* <p>Bugs: (a list of bugs and / or other problems)
 *
-* @author <Moultrie Dangerfield>
+* @author <Moultrie Dangerfield, Flynn Nisbet, Mengsrun Nit>
 * @date <08/30/23>
 */
 
@@ -30,6 +29,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public boolean add(E e) {
+		//checking for duplicates before adding
 		if(!_list.contains(e)) {
 			_list.add(e);
 			return true;
@@ -77,7 +77,7 @@ public class ArraySet<E> implements List<E>, Set<E>
 	}
 
 	@Override
-	//Checks if a colletion contains all the elements of your set
+	//Checks if a collection contains all the elements of your set
 	public boolean containsAll(Collection<?> c) {
 		return _list.containsAll(c);
 	}
@@ -108,10 +108,12 @@ public class ArraySet<E> implements List<E>, Set<E>
 		return _list.set(index, element);
 	}
 
-	@Override //!!!!!!
+	@Override 
 	public void add(int index, E element) {
-		//Maybe add error checking for out of bounds index?
+		//checks for bounds before adding 
+		if(index >= 0 && index < _list.size()) {
 		_list.add(index, element);
+		}
 	}
 
 	@Override
@@ -136,7 +138,6 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public List<E> subList(int fromIndex, int toIndex) {
-		// TODO Auto-generated method stub
 		return _list.subList(fromIndex, toIndex);
 	}
 
@@ -160,12 +161,5 @@ public class ArraySet<E> implements List<E>, Set<E>
 	public E remove(int index) {
 		return _list.remove(index);
 	}
-
-	@Override
-	public boolean addAll(int index, Collection<? extends E> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 
 }
