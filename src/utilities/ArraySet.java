@@ -29,28 +29,28 @@ public class ArraySet<E> implements List<E>, Set<E>
 	@Override
 	public boolean addAll(Collection<? extends E> c) {
 		for(E value: c) {
-			_list.add(value);
-		}
-		//This needs work. 
+			if(!_list.contains(value)) {
+				_list.add(value);
+			}
+		return true;
+		} 
 		return false;
 	}
 
 	@Override
 	public int size() {
-		
 		return _list.size();
 	}
 
 	@Override
 	public boolean isEmpty() {
-	
 		return _list.isEmpty();
 	}
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		// What does this method do?
+		return _list.toArray();
 	}
 
 	@Override
@@ -61,27 +61,24 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public boolean remove(Object o) {
-		
-		return _list.remove((Object) o);
+		return _list.remove(o);
 	}
 
 	@Override
+	//Checks if a colletion contains all the elements of your set
 	public boolean containsAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
+		return _list.containsAll(c);
 	}
 
 	
-	@Override
+	@Override 
 	public boolean removeAll(Collection<?> c) {
-		// TODO Auto-generated method stub
 		return _list.removeAll(c);
 	}
 
 	@Override
 	public boolean retainAll(Collection<?> c) {
-		_list.retainAll(c);
-		return false;
+		return _list.retainAll(c);
 	}
 
 	@Override
@@ -96,26 +93,23 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public E set(int index, E element) {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.set(index, element);
 	}
 
-	@Override
+	@Override //!!!!!!
 	public void add(int index, E element) {
-		// TODO Auto-generated method stub
-		
+		//Maybe add error checking for out of bounds index?
+		_list.add(index, element);
 	}
 
 	@Override
 	public int indexOf(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return _list.indexOf(o);
 	}
 
 	@Override
 	public int lastIndexOf(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return _list.lastIndexOf(o);
 	}
 
 	@Override
@@ -143,26 +137,24 @@ public class ArraySet<E> implements List<E>, Set<E>
 
 	@Override
 	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return _list.iterator();
 	}
 
 	@Override
 	public Spliterator<E> spliterator() {
-		// TODO Auto-generated method stub
 		return List.super.spliterator();
+	}
+
+
+	@Override
+	public E remove(int index) {
+		return _list.remove(index);
 	}
 
 	@Override
 	public boolean addAll(int index, Collection<? extends E> c) {
 		// TODO Auto-generated method stub
 		return false;
-	}
-
-	@Override
-	public E remove(int index) {
-		// TODO Auto-generated method stub
-		return _list.remove(index);
 	}
 
 

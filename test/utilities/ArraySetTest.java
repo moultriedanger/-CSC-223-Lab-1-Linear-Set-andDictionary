@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 class ArraySetTest
@@ -42,6 +45,39 @@ class ArraySetTest
 	@Test
 	void testRetainAll()
 	{
+		//Create a list
+		List<Integer> testCollection = new ArrayList<>();
+		
+		testCollection.add(5);
+		testCollection.add(12);
+		testCollection.add(15);
+		
+		assertEquals(3,testCollection.size());
+	        
+		
+		//Populate array set. 
+		ArraySet <Integer> testRet = new ArraySet<Integer>();
+		
+		testRet.add(0);
+		testRet.add(5);
+		testRet.add(10);
+		testRet.add(12);
+		testRet.add(15);
+		
+		assertEquals(5,testRet.size());
+		
+//		//What does this do?
+		assertTrue(testRet.retainAll(testCollection));
+		assertEquals(3,testRet.size());
+		
+		assertFalse(testRet.contains(0));
+		assertFalse(testRet.contains(10));
+		assertTrue(testRet.contains(5));
+		assertTrue(testRet.contains(12));
+		assertTrue(testRet.contains(15));	
+		
+		
+		
 		
 	}
 	
