@@ -51,10 +51,10 @@ class ParallelArrayDictionaryTest
 		assertEquals(3,putTest.size());
 		putTest.put(1, 5);
 		assertEquals(3,putTest.size());
-		putTest.put(3, 9);
+		//Test to see if the value updated
+		assertTrue(putTest.containsValue(5));
 		assertEquals(3,putTest.size());
 	}
-	
 	
 
 	@Test

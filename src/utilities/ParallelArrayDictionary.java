@@ -54,9 +54,15 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 
 	@Override
 	public Value put(Key key, Value value) {
+		if (_keys.contains(key)) {
+			_keys.add(key);
+			int i =_keys.indexOf(key);
+			_values.remove(i);
+			_keys.remove(i);
+		}
 		_keys.add(key);
 		_values.add(value);
-		return value;
+		return _values.get(_keys.indexOf(key));
 	}
 
 	@Override
@@ -87,10 +93,5 @@ public class ParallelArrayDictionary<Key, Value> implements Map<Key, Value>
 	@Override
 	public Collection<Value> values() {
 		return _values;
-	}
-
-	@Override
-	public Set<Entry<Key, Value>> entrySet() {
-		return ;
 	}
 }
